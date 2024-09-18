@@ -1,21 +1,43 @@
-const express= require("express")
+const express = require('express');
 
-function create(reg, res,next){
-    res.send( `POST => /users/ => ${req.body.name}`);
+function list(req, res, next) {
+    res.send('Respond with lista');
 }
-function list(reg, res,next){
-    res.send('GET => /users/');
+
+function suma(req, res, next) {
+    const n1 = parseInt(req.param('n1'));
+    const n2 = parseInt(req.param('n2'));
+    const resu = n1 + n2;
+    res.send(`El resultado de ${n1} + ${n2} es ${resu}`);
 }
-function index(reg, res){
-    res.send(`GET => /users/ ${req.body.id}`);
+
+function multiplica(req, res, next) {
+    const n1 = parseInt(req.body.n1);
+    const n2 = parseInt(req.body.n2);
+    const resu = n1 * n2;
+    res.send(`El resultado de ${n1} * ${n2} es ${resu}`);
 }
-function replace(reg, res){
-    res.send('PUT => /users/:id');
+
+function divide(req, res, next) {
+    const n1 = parseInt(req.body.n1);
+    const n2 = parseInt(req.body.n2);
+    const resu = n1 / n2;
+    res.send(`El resultado de ${n1} / ${n2} es ${resu}`);
 }
-function update(reg, res){
-    res.send('PATCH=> /users/:id');
+
+function potencia(req, res, next) {
+    const n1 = parseInt(req.body.n1);
+    const n2 = parseInt(req.body.n2);
+    const resu = n1 ** n2;
+    res.send(`El resultado de ${n1} elevado a ${n2} es ${resu}`);
 }
-function destroy(reg, res){
-    res.send('DELETE => /users/:id');
+
+function resta(req, res, next) {
+    const n1 = parseInt(req.param('n1'));
+    const n2 = parseInt(req.param('n2'));
+    const resu = n1 - n2;
+    res.send(`El resultado de ${n1} - ${n2} es ${resu}`);
 }
-module.exports ={create, list, index, replace, update, destroy};
+
+
+module.exports = {list, suma, multiplica, divide, potencia, resta};
